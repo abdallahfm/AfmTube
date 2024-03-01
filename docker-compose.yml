@@ -18,8 +18,8 @@ services:
     build: ${GITHUB_WORKSPACE}/filesystem-service
     ports:
       - "8083:8083"
-    volumes:
-      - C:/Users/abdal/OneDrive/Desktop/atypon:/app/upload
+    # volumes:
+    #   - C:/Users/abdal/OneDrive/Desktop/atypon:/app/upload
     networks:
       - afm-network
 
