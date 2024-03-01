@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  authentication-service:
+    build: ./authentication-service
+    ports:
+      - "8082:8082"
+    environment:
+      - DB_HOST=host.docker.internal
+      - DB_NAME=afmtube
+      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/afmtube
+      - DB_USER=devUser
+      - DB_PASSWORD=abdallah192002?
+    networks:
+      - afm-network
+
+  filesystem-service:
+    build: ./filesystem-service
+    ports:
+      - "8083:8083"
+    volumes:
+      - C:/Users/abdal/OneDrive/Desktop/atypon:/app/upload
+    networks:
+      - afm-network
+
+  mysql-service:
+    build: ./MySqlDB-service
+    ports:
+      - "8084:8084"
+    environment:
+      - DB_HOST=host.docker.internal
+      - DB_NAME=afmtube
+      - DB_USER=devUser
+      - DB_PASSWORD=abdallah192002?
+      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/afmtube
+    networks:
+      - afm-network
+
+  upload-service:
+    build: ./upload-service
+    ports:
+      - "8081:8081"
+    networks:
+      - afm-network
+
+  streaming-service:
+    build: ./streaming-service
+    ports:
+      - "8080:8080"
+    networks:
+      - afm-network
+
+networks:
+  afm-network:
+    driver: bridge
