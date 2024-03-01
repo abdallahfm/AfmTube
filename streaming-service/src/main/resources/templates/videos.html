@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Videos</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #444;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #fff;
+      margin-bottom: 10px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .upload-link {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #0056b3;
+      color: #ffffff;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .upload-link:hover {
+      background-color: #004494;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Available Videos</h1>
+  <ul>
+    <li th:each="video : ${videos}">
+      <a th:href="@{/stream/video/{name}(name=${video.name})}" th:text="${video.name}">Video Title</a>
+    </li>
+  </ul>
+  <a href="http://localhost:8081" class="upload-link">Upload a video</a>
+</div>
+</body>
+</html>

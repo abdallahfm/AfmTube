@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>File Upload</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2 {
+            color: #444;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .file-input {
+            opacity: 0;
+            width: 0.1px;
+            height: 0.1px;
+            position: absolute;
+        }
+
+        .file-label {
+            display: inline-block;
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .file-label:hover {
+            background-color: #0056b3;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #007bff;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .message {
+            color: #28a745;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Upload a file</h1>
+
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <input type="file" id="file" name="file" class="file-input" />
+    <label for="file" class="file-label">Choose a file</label>
+    <button type="submit">Upload</button>
+</form>
+
+<div th:if="${message}" class="message">
+    <h2 th:text="${message}">Upload successful!</h2>
+</div>
+<a href="http://localhost:8080/videos">Watch a video</a>
+
+</body>
+</html>
