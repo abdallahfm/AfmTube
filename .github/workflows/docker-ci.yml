@@ -19,9 +19,10 @@ jobs:
 
       - name: Build and push with Docker Compose
         run: |
-          docker-compose build
-          docker-compose push
           working-directory: ./
+          docker-compose up -d
+          docker-compose push
+          
 
       - name: List directory structure
         run: ls -R
