@@ -15,7 +15,7 @@ services:
       - afm-network
 
   filesystem-service:
-    build: ${GITHUB_WORKSPACE}/filesystem-service
+    build: ${GITHUB_WORKSPACE}/fileSystem-service
     ports:
       - "8083:8083"
     # volumes:
