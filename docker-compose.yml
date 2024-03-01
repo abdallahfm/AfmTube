@@ -29,10 +29,10 @@ services:
       - "8084:8084"
     environment:
       - DB_HOST=host.docker.internal
-      - DB_NAME=afmtube
-      - DB_USER=devUser
-      - DB_PASSWORD=abdallah192002?
-      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/afmtube
+      - DB_NAME=
+      - DB_USER=
+      - DB_PASSWORD=
+      - SPRING_DATASOURCE_URL=
     networks:
       - afm-network
 
